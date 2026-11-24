@@ -1,0 +1,37 @@
+# Local credentials, signing material and private data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+key.properties
+local.properties
+*-firebase-adminsdk-*.json
+service-account*.json
+service_account*.json
+/secrets/
+/private/
+/uploads/
+/backups/
+*.dump
+*.log
+
+# Local tools, caches and builds
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.dart_tool/
+.flutter-plugins-dependencies
+.gradle/
+build/
+coverage/
+*.apk
+*.aab
+*.test
+*.out
+/bin/

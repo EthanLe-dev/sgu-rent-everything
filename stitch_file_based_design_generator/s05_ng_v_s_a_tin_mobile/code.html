@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="vi"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S05 Đăng và sửa tin — Thuê Đồ Sinh Viên</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#146C2E',
+        'on-success': '#FFFFFF',
+        'success-container': '#D3F3D9',
+        'on-success-container': '#073815',
+        'warning': '#8C4A00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCBE',
+        'on-warning-container': '#4A2300',
+        'light-primary': '#0A0435',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#191443',
+        'light-on-primary-container': '#E4DFFF',
+        'light-secondary': '#5E5C71',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E4DFF9',
+        'light-on-secondary-container': '#302E42',
+        'light-tertiary': '#693A2C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#845141',
+        'light-on-tertiary-container': '#FFDBD0',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#FCF8FD',
+        'light-on-background': '#1C1B1F',
+        'light-surface': '#FCF8FD',
+        'light-surface-dim': '#DDD9DD',
+        'light-surface-bright': '#FCF8FD',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F7F2F7',
+        'light-surface-container': '#F1ECF1',
+        'light-surface-container-high': '#EBE7EC',
+        'light-surface-container-highest': '#E5E1E6',
+        'light-on-surface': '#1C1B1F',
+        'light-surface-variant': '#E5E1EC',
+        'light-on-surface-variant': '#47464F',
+        'light-outline': '#787680',
+        'light-outline-variant': '#C8C5D0',
+        'light-inverse-surface': '#313034',
+        'light-inverse-on-surface': '#F4EFF4',
+        'light-inverse-primary': '#C6C0F9',
+        'dark-primary': '#C6C0F9',
+        'dark-on-primary': '#2E2A59',
+        'dark-primary-container': '#0A0435',
+        'dark-on-primary-container': '#E4DFFF',
+        'dark-secondary': '#C8C3DD',
+        'dark-on-secondary': '#302E42',
+        'dark-secondary-container': '#474459',
+        'dark-on-secondary-container': '#E4DFF9',
+        'dark-tertiary': '#F9B7A3',
+        'dark-on-tertiary': '#4E2517',
+        'dark-tertiary-container': '#693A2C',
+        'dark-on-tertiary-container': '#FFDBD0',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#141316',
+        'dark-on-background': '#E5E1E6',
+        'dark-surface': '#141316',
+        'dark-surface-dim': '#141316',
+        'dark-surface-bright': '#3A393C',
+        'dark-surface-container-lowest': '#0E0E11',
+        'dark-surface-container-low': '#1C1B1F',
+        'dark-surface-container': '#201F23',
+        'dark-surface-container-high': '#2A292D',
+        'dark-surface-container-highest': '#353438',
+        'dark-on-surface': '#E5E1E6',
+        'dark-surface-variant': '#47464F',
+        'dark-on-surface-variant': '#C8C5D0',
+        'dark-outline': '#928F99',
+        'dark-outline-variant': '#47464F',
+        'dark-inverse-surface': '#E5E1E6',
+        'dark-inverse-on-surface': '#313034',
+        'dark-inverse-primary': '#5D598B',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '48px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['26px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.25px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] w-full max-w-[390px] mx-auto bg-light-surface flex flex-col pb-28" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <!-- Contextual Top Bar -->
+    <header class="sticky top-0 z-20 bg-light-surface border-b border-light-outline-variant px-gutter-sm py-gutter-xs flex items-center justify-between gap-gutter-sm">
+      <div class="flex items-center gap-gutter-xs">
+        <a href="../s03-kham-pha/KhamPha.html" aria-label="Quay lại" class="inline-flex items-center justify-center w-12 h-12 rounded-full text-light-on-surface hover:bg-light-surface-container">
+          <span class="material-symbols-outlined text-[24px]" aria-hidden="true">arrow_back</span>
+        </a>
+        <h1 class="font-title text-title-lg text-light-on-surface" data-design-text-token="title-lg">Đăng món cho thuê</h1>
+      </div>
+      <button type="button" class="px-3 py-2 rounded-full font-label text-label-md text-light-primary hover:bg-light-surface-container" data-design-text-token="label-md">Lưu nháp</button>
+    </header>
+
+    <!-- 3-Step Indicator -->
+    <div class="px-page-margin pt-gutter-md">
+      <div class="grid grid-cols-3 gap-gutter-xs" role="tablist" aria-label="Các bước đăng tin">
+        <button type="button" onclick="showStep(1, this)" class="step-tab py-2 px-2 rounded-md bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm text-center" data-design-text-token="label-sm">1. Ảnh &amp; Mô tả</button>
+        <button type="button" onclick="showStep(2, this)" class="step-tab py-2 px-2 rounded-md bg-light-surface-container text-light-on-surface-variant font-label text-label-sm text-center" data-design-text-token="label-sm">2. Giá &amp; Lịch</button>
+        <button type="button" onclick="showStep(3, this)" class="step-tab py-2 px-2 rounded-md bg-light-surface-container text-light-on-surface-variant font-label text-label-sm text-center" data-design-text-token="label-sm">3. Cơ sở &amp; Đăng</button>
+      </div>
+    </div>
+
+    <main class="flex-1 flex flex-col gap-gutter-md px-page-margin pt-gutter-md">
+
+      <!-- Step 1: Photos & Details -->
+      <section id="panel-1" class="step-panel flex flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <span class="font-label text-label-lg text-light-on-surface" data-design-text-token="label-lg">Ảnh món đồ (4:3, JPEG/PNG tối đa 8 MiB)</span>
+          <div class="grid grid-cols-3 gap-gutter-sm">
+            <div class="aspect-[4/3] rounded-md overflow-hidden border border-light-outline-variant bg-light-surface-container">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrC4C1Mxx31lDTbbqSLUSWt6P0x0TcDvCxo3Zm3r18kXv-o-moR6_kL9gOUPMgJJ1VmHReOPCWo9Ymvk0TXdg28XSHEFcuFbkZIq290P1KotPoSqOJNSk7EJfeT7aOTx8SHtxQlrQZ1RFdDqdzVHw2npOPZrfS5e0-6Zhs7P43BZk1F6okQbqJeir_eDY-8e8rxpsf5Tm6Z9WTS1csCOZ4IWgIix-wVbYguVb0RySiAqP_85alyGLdMlrw" alt="Ảnh đã tải" class="w-full h-full object-cover">
+            </div>
+            <!-- Upload in progress -->
+            <div class="aspect-[4/3] rounded-md border border-light-outline-variant bg-light-surface-container-low flex flex-col items-center justify-center p-2 gap-1">
+              <span class="font-label text-label-sm text-light-primary tabular-nums" data-design-text-token="label-sm">Đang tải 65%</span>
+              <div class="w-full h-1.5 rounded-full bg-light-surface-container-highest overflow-hidden">
+                <div class="w-2/3 h-full bg-light-primary rounded-full"></div>
+              </div>
+            </div>
+            <!-- Error / Retry -->
+            <button type="button" class="aspect-[4/3] rounded-md border border-light-error bg-light-error-container text-light-on-error-container flex flex-col items-center justify-center p-2 gap-1">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">refresh</span>
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Lỗi · Chọn lại</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-gutter-sm">
+          <div class="flex flex-col gap-1">
+            <label for="item-name" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Tên món đồ</label>
+            <input id="item-name" type="text" value="Máy ảnh Sony ZV-E10 kèm 1 pin" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">
+          </div>
+
+          <div class="grid grid-cols-2 gap-gutter-sm">
+            <div class="flex flex-col gap-1">
+              <label for="item-cat" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Loại đồ</label>
+              <select id="item-cat" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">
+                <option selected>Máy ảnh</option>
+                <option>Học tập</option>
+                <option>Trang phục</option>
+                <option>Âm thanh</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="item-cond" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Tình trạng</label>
+              <select id="item-cond" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">
+                <option selected>Rất tốt</option>
+                <option>Tốt</option>
+                <option>Khá</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="item-acc" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Phụ kiện kèm theo</label>
+            <input id="item-acc" type="text" value="1 pin NP-FW50, dây đeo, thẻ nhớ 64GB" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="item-desc" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Mô tả chi tiết</label>
+            <textarea id="item-desc" rows="3" class="w-full p-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">Máy hoạt động ổn định, phù hợp quay vlog và chụp sự kiện CLB.</textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Price, Deposit & Busy Dates -->
+      <section id="panel-2" class="step-panel hidden flex flex-col gap-gutter-md">
+        <div class="grid grid-cols-2 gap-gutter-sm">
+          <div class="flex flex-col gap-1">
+            <label for="item-price" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Giá thuê/ngày (đ)</label>
+            <input id="item-price" type="text" value="50.000" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface tabular-nums focus:border-light-primary focus:ring-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="item-deposit" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Tiền cọc (đ)</label>
+            <input id="item-deposit" type="text" value="300.000" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-md text-light-on-surface tabular-nums focus:border-light-primary focus:ring-0">
+          </div>
+        </div>
+        <div class="rounded-lg bg-light-surface-container-low border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-xs">
+          <span class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Ước tính thực nhận (đơn 2 ngày)</span>
+          <span class="font-body text-body-md text-light-on-surface-variant tabular-nums" data-design-text-token="body-md">Tiền thuê 100.000đ trừ 1.000đ phí của chủ đồ = 99.000đ</span>
+        </div>
+        <div class="flex flex-col gap-gutter-xs">
+          <span class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Đánh dấu ngày bận (tùy chọn)</span>
+          <div class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex items-center justify-between">
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">24/11 – 25/11 (Đã khóa)</span>
+            <button type="button" class="font-label text-label-md text-light-primary" data-design-text-token="label-md">Chỉnh sửa</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Campus, Preview & Publish -->
+      <section id="panel-3" class="step-panel hidden flex flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <span class="font-label text-label-lg text-light-on-surface" data-design-text-token="label-lg">Chọn cơ sở hẹn giao</span>
+          <div class="grid grid-cols-3 gap-gutter-sm">
+            <button type="button" class="min-h-[44px] rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Cơ sở 1</button>
+            <button type="button" class="min-h-[44px] rounded-md bg-light-secondary-container border border-light-primary font-label text-label-md text-light-on-secondary-container" data-design-text-token="label-md">Cơ sở 2</button>
+            <button type="button" class="min-h-[44px] rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Cơ sở Chính</button>
+          </div>
+        </div>
+
+        <div class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-sm">
+          <span class="font-label text-label-sm text-light-primary" data-design-text-token="label-sm">XEM TRƯỚC TIN ĐĂNG</span>
+          <div class="aspect-[4/3] rounded-md overflow-hidden bg-light-surface-container">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC4C1Mxx31lDTbbqSLUSWt6P0x0TcDvCxo3Zm3r18kXv-o-moR6_kL9gOUPMgJJ1VmHReOPCWo9Ymvk0TXdg28XSHEFcuFbkZIq290P1KotPoSqOJNSk7EJfeT7aOTx8SHtxQlrQZ1RFdDqdzVHw2npOPZrfS5e0-6Zhs7P43BZk1F6okQbqJeir_eDY-8e8rxpsf5Tm6Z9WTS1csCOZ4IWgIix-wVbYguVb0RySiAqP_85alyGLdMlrw" alt="Xem trước" class="w-full h-full object-cover">
+          </div>
+          <h2 class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Máy ảnh Sony ZV-E10 kèm 1 pin</h2>
+          <p class="font-label text-label-lg text-light-primary tabular-nums" data-design-text-token="label-lg">50.000đ/ngày · Cọc 300.000đ · Cơ sở 2</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Sticky Bottom Action -->
+    <footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-30 bg-light-surface-container-lowest border-t border-light-outline-variant px-page-margin py-gutter-sm flex items-center gap-gutter-sm">
+      <!-- COMPONENT: button-primary -->
+      <button id="next-step-btn" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" onclick="advanceStep()" class="w-full inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-light-primary text-light-on-primary hover:bg-light-primary-container transition-colors duration-state-change ease-state-change">
+        <span class="font-label text-label-lg" data-design-text-token="label-lg">Tiếp tục sang Giá &amp; Lịch</span>
+      </button>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentStep = 1;
+    function showStep(step, btn) {
+      currentStep = step;
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('panel-' + step).classList.remove('hidden');
+      document.querySelectorAll('.step-tab').forEach((t, idx) => {
+        t.className = (idx + 1 === step)
+          ? 'step-tab py-2 px-2 rounded-md bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm text-center'
+          : 'step-tab py-2 px-2 rounded-md bg-light-surface-container text-light-on-surface-variant font-label text-label-sm text-center';
+      });
+      const label = document.querySelector('#next-step-btn span');
+      if (step === 1) label.textContent = 'Tiếp tục sang Giá & Lịch';
+      else if (step === 2) label.textContent = 'Tiếp tục chọn Cơ sở';
+      else label.textContent = 'Đăng tin cho thuê';
+    }
+    function advanceStep() {
+      if (currentStep < 3) showStep(currentStep + 1);
+      else window.location.href = '../s06-tin-cua-toi/TinCuaToi.html';
+    }
+  </script>
+
+
+</body></html>

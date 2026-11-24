@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="vi"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S07 Giao dịch — Thuê Đồ Sinh Viên</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#146C2E',
+        'on-success': '#FFFFFF',
+        'success-container': '#D3F3D9',
+        'on-success-container': '#073815',
+        'warning': '#8C4A00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCBE',
+        'on-warning-container': '#4A2300',
+        'light-primary': '#0A0435',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#191443',
+        'light-on-primary-container': '#E4DFFF',
+        'light-secondary': '#5E5C71',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E4DFF9',
+        'light-on-secondary-container': '#302E42',
+        'light-tertiary': '#693A2C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#845141',
+        'light-on-tertiary-container': '#FFDBD0',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#FCF8FD',
+        'light-on-background': '#1C1B1F',
+        'light-surface': '#FCF8FD',
+        'light-surface-dim': '#DDD9DD',
+        'light-surface-bright': '#FCF8FD',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F7F2F7',
+        'light-surface-container': '#F1ECF1',
+        'light-surface-container-high': '#EBE7EC',
+        'light-surface-container-highest': '#E5E1E6',
+        'light-on-surface': '#1C1B1F',
+        'light-surface-variant': '#E5E1EC',
+        'light-on-surface-variant': '#47464F',
+        'light-outline': '#787680',
+        'light-outline-variant': '#C8C5D0',
+        'light-inverse-surface': '#313034',
+        'light-inverse-on-surface': '#F4EFF4',
+        'light-inverse-primary': '#C6C0F9',
+        'dark-primary': '#C6C0F9',
+        'dark-on-primary': '#2E2A59',
+        'dark-primary-container': '#0A0435',
+        'dark-on-primary-container': '#E4DFFF',
+        'dark-secondary': '#C8C3DD',
+        'dark-on-secondary': '#302E42',
+        'dark-secondary-container': '#474459',
+        'dark-on-secondary-container': '#E4DFF9',
+        'dark-tertiary': '#F9B7A3',
+        'dark-on-tertiary': '#4E2517',
+        'dark-tertiary-container': '#693A2C',
+        'dark-on-tertiary-container': '#FFDBD0',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#141316',
+        'dark-on-background': '#E5E1E6',
+        'dark-surface': '#141316',
+        'dark-surface-dim': '#141316',
+        'dark-surface-bright': '#3A393C',
+        'dark-surface-container-lowest': '#0E0E11',
+        'dark-surface-container-low': '#1C1B1F',
+        'dark-surface-container': '#201F23',
+        'dark-surface-container-high': '#2A292D',
+        'dark-surface-container-highest': '#353438',
+        'dark-on-surface': '#E5E1E6',
+        'dark-surface-variant': '#47464F',
+        'dark-on-surface-variant': '#C8C5D0',
+        'dark-outline': '#928F99',
+        'dark-outline-variant': '#47464F',
+        'dark-inverse-surface': '#E5E1E6',
+        'dark-inverse-on-surface': '#313034',
+        'dark-inverse-primary': '#5D598B',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '48px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['26px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.25px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] w-full max-w-[390px] mx-auto bg-light-surface flex flex-col pb-24" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <header class="sticky top-0 z-20 bg-light-surface border-b border-light-outline-variant px-page-margin py-gutter-sm flex items-center justify-between gap-gutter-sm">
+      <h1 class="font-title text-title-lg text-light-on-surface" data-design-text-token="title-lg">Giao dịch</h1>
+      <a href="../s11-thong-bao/ThongBao.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Hộp thông báo" class="relative inline-flex items-center justify-center w-12 h-12 rounded-full text-light-on-surface hover:bg-light-surface-container">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">notifications</span>
+      </a>
+    </header>
+
+    <main class="flex-1 flex flex-col gap-gutter-md px-page-margin pt-gutter-md">
+
+      <!-- Role Switcher -->
+      <div class="grid grid-cols-2 gap-gutter-xs p-1 rounded-full bg-light-surface-container border border-light-outline-variant" role="tablist">
+        <button type="button" onclick="switchRole(&#39;renter&#39;, this)" class="role-tab min-h-[40px] rounded-full bg-light-surface-container-lowest text-light-primary font-label text-label-md" data-design-text-token="label-md">Tôi đi thuê</button>
+        <button type="button" onclick="switchRole(&#39;owner&#39;, this)" class="role-tab min-h-[40px] rounded-full text-light-on-surface-variant font-label text-label-md" data-design-text-token="label-md">Tôi cho thuê</button>
+      </div>
+
+      <!-- Status Filter Chips -->
+      <div class="flex items-center gap-gutter-xs overflow-x-auto pb-1">
+        <button type="button" class="shrink-0 min-h-[36px] px-3.5 rounded-full bg-light-secondary-container text-light-on-secondary-container font-label text-label-md" data-design-text-token="label-md">Tất cả (3)</button>
+        <button type="button" class="shrink-0 min-h-[36px] px-3.5 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant font-label text-label-md" data-design-text-token="label-md">Chờ xử lý</button>
+        <button type="button" class="shrink-0 min-h-[36px] px-3.5 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant font-label text-label-md" data-design-text-token="label-md">Đang thuê</button>
+        <button type="button" class="shrink-0 min-h-[36px] px-3.5 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant font-label text-label-md" data-design-text-token="label-md">Hoàn tất</button>
+      </div>
+
+      <!-- Renter View -->
+      <section id="view-renter" class="flex flex-col gap-gutter-sm">
+        <a href="../s08-chi-tiet-don/ChiTietDon.html" class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-sm hover:border-light-primary">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm" data-design-text-token="label-sm">
+              <span class="material-symbols-outlined text-[14px]" aria-hidden="true">handshake</span>
+              Đã duyệt · Chờ giao
+            </span>
+            <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums" data-design-text-token="mono-sm">#SGU-104</span>
+          </div>
+          <div class="flex gap-gutter-sm items-center">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC4C1Mxx31lDTbbqSLUSWt6P0x0TcDvCxo3Zm3r18kXv-o-moR6_kL9gOUPMgJJ1VmHReOPCWo9Ymvk0TXdg28XSHEFcuFbkZIq290P1KotPoSqOJNSk7EJfeT7aOTx8SHtxQlrQZ1RFdDqdzVHw2npOPZrfS5e0-6Zhs7P43BZk1F6okQbqJeir_eDY-8e8rxpsf5Tm6Z9WTS1csCOZ4IWgIix-wVbYguVb0RySiAqP_85alyGLdMlrw" alt="Máy ảnh Sony ZV-E10" class="w-16 aspect-[4/3] rounded-md object-cover shrink-0">
+            <div class="flex-1 flex flex-col gap-0.5">
+              <h2 class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Máy ảnh Sony ZV-E10 kèm 1 pin</h2>
+              <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Chủ đồ: Lan · Cơ sở 2</span>
+              <span class="font-label text-label-sm text-light-primary tabular-nums" data-design-text-token="label-sm">T6, 27/11 – T7, 28/11 · Mang 401.000đ</span>
+            </div>
+          </div>
+          <div class="pt-gutter-xs border-t border-light-outline-variant flex items-center justify-between">
+            <span class="font-label text-label-md text-light-primary" data-design-text-token="label-md">Việc tiếp theo: Hẹn gặp &amp; xác nhận nhận</span>
+            <span class="material-symbols-outlined text-[20px] text-light-primary" aria-hidden="true">chevron_right</span>
+          </div>
+        </a>
+
+        <a href="../s08-chi-tiet-don/ChiTietDon.html" class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-sm hover:border-light-primary">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+              <span class="material-symbols-outlined text-[14px]" aria-hidden="true">check_circle</span>
+              Hoàn tất
+            </span>
+            <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums" data-design-text-token="mono-sm">#SGU-089</span>
+          </div>
+          <div class="flex gap-gutter-sm items-center">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAQD0f8ZQYToPm8M2M75wFClr6IUYaMKgIfFL6upbKC4BldVObVOxcy8J5Bp7XLKmb1DGiMcxDiJBbXyNIj0TLnUpjwlieutdBNLmO-ntj3SsOQ4vAoWvyVOetc_4S1MhlhKU-fpujDT7n8DoIhS5MxhMpyFwgxLhl4Tt27Vmo3v7r8pi6nUrHrYdm4ekICLIT5hyJ_0RSekTz5HUOTvNaJ4oSdHY1STJDj_x9KVaSFr78mMRvwhqIuBEN4f5Qx" alt="Máy tính Casio" class="w-16 aspect-[4/3] rounded-md object-cover shrink-0">
+            <div class="flex-1 flex flex-col gap-0.5">
+              <h2 class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Máy tính Casio fx-580VN X</h2>
+              <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Chủ đồ: Hùng · Cơ sở Chính</span>
+              <span class="font-label text-label-sm text-light-on-surface-variant tabular-nums" data-design-text-token="label-sm">18/11 – 19/11 · Chi phí thuê: 31.000đ</span>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Owner View (includes Overdue Warning) -->
+      <section id="view-owner" class="hidden flex flex-col gap-gutter-sm">
+        <div role="alert" class="rounded-lg bg-light-error-container text-light-on-error-container p-gutter-md flex items-start gap-gutter-sm">
+          <span class="material-symbols-outlined text-[20px] mt-0.5 shrink-0" aria-hidden="true">warning</span>
+          <div class="flex flex-col gap-0.5">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">Đơn #SGU-101 đang giữ máy quá hạn</span>
+            <span class="font-body text-body-md" data-design-text-token="body-md">Lượt giao kế tiếp (#SGU-104 cho Minh) đang bị chặn cho đến khi thu hồi xong.</span>
+          </div>
+        </div>
+
+        <a href="../s08-chi-tiet-don/ChiTietDon.html" class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-sm">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm" data-design-text-token="label-sm">
+              Chờ chủ đồ trả lời
+            </span>
+            <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums" data-design-text-token="mono-sm">#SGU-104</span>
+          </div>
+          <div class="flex gap-gutter-sm items-center">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC4C1Mxx31lDTbbqSLUSWt6P0x0TcDvCxo3Zm3r18kXv-o-moR6_kL9gOUPMgJJ1VmHReOPCWo9Ymvk0TXdg28XSHEFcuFbkZIq290P1KotPoSqOJNSk7EJfeT7aOTx8SHtxQlrQZ1RFdDqdzVHw2npOPZrfS5e0-6Zhs7P43BZk1F6okQbqJeir_eDY-8e8rxpsf5Tm6Z9WTS1csCOZ4IWgIix-wVbYguVb0RySiAqP_85alyGLdMlrw" alt="Máy ảnh Sony ZV-E10" class="w-16 aspect-[4/3] rounded-md object-cover shrink-0">
+            <div class="flex-1 flex flex-col gap-0.5">
+              <h2 class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Máy ảnh Sony ZV-E10 kèm 1 pin</h2>
+              <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Người thuê: Minh · Cơ sở 2</span>
+              <span class="font-label text-label-sm text-light-primary tabular-nums" data-design-text-token="label-sm">Thu 401.000đ · Thực nhận 99.000đ</span>
+            </div>
+          </div>
+          <div class="pt-gutter-xs border-t border-light-outline-variant flex items-center justify-between">
+            <span class="font-label text-label-md text-light-primary" data-design-text-token="label-md">Việc tiếp theo: Duyệt hoặc từ chối yêu cầu</span>
+            <span class="material-symbols-outlined text-[20px] text-light-primary" aria-hidden="true">chevron_right</span>
+          </div>
+        </a>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav aria-label="Điều hướng chính" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-30 bg-light-surface-container-lowest border-t border-light-outline-variant px-gutter-sm py-gutter-xs grid grid-cols-4 gap-gutter-xs">
+      <a href="../s03-kham-pha/KhamPha.html" class="flex flex-col items-center justify-center min-h-[56px] gap-gutter-xs text-light-on-surface-variant hover:text-light-on-surface">
+        <span class="inline-flex items-center justify-center w-14 h-8 rounded-full"><span class="material-symbols-outlined text-[22px]" aria-hidden="true">explore</span></span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">Khám phá</span>
+      </a>
+      <a href="../s05-dang-sua-tin/DangSuaTin.html" class="flex flex-col items-center justify-center min-h-[56px] gap-gutter-xs text-light-on-surface-variant hover:text-light-on-surface">
+        <span class="inline-flex items-center justify-center w-14 h-8 rounded-full"><span class="material-symbols-outlined text-[22px]" aria-hidden="true">add_box</span></span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">Đăng đồ</span>
+      </a>
+      <a href="#" aria-current="page" class="flex flex-col items-center justify-center min-h-[56px] gap-gutter-xs text-light-primary">
+        <span class="inline-flex items-center justify-center w-14 h-8 rounded-full bg-light-secondary-container text-light-on-secondary-container"><span class="material-symbols-outlined text-[22px]" aria-hidden="true" style="font-variation-settings: &#39;FILL&#39; 1;">swap_horiz</span></span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">Giao dịch</span>
+      </a>
+      <a href="../s02-ho-so-xac-minh/HoSoXacMinh.html" class="flex flex-col items-center justify-center min-h-[56px] gap-gutter-xs text-light-on-surface-variant hover:text-light-on-surface">
+        <span class="inline-flex items-center justify-center w-14 h-8 rounded-full"><span class="material-symbols-outlined text-[22px]" aria-hidden="true">person</span></span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">Cá nhân</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script>
+    function switchRole(role, btn) {
+      document.querySelectorAll('.role-tab').forEach(t => {
+        t.className = 'role-tab min-h-[40px] rounded-full text-light-on-surface-variant font-label text-label-md';
+      });
+      btn.className = 'role-tab min-h-[40px] rounded-full bg-light-surface-container-lowest text-light-primary font-label text-label-md';
+      document.getElementById('view-renter').classList.toggle('hidden', role !== 'renter');
+      document.getElementById('view-owner').classList.toggle('hidden', role !== 'owner');
+    }
+  </script>
+
+
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="vi"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S01 Đăng nhập — Thuê Đồ Sinh Viên</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#146C2E',
+        'on-success': '#FFFFFF',
+        'success-container': '#D3F3D9',
+        'on-success-container': '#073815',
+        'warning': '#8C4A00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCBE',
+        'on-warning-container': '#4A2300',
+        'light-primary': '#0A0435',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#191443',
+        'light-on-primary-container': '#E4DFFF',
+        'light-secondary': '#5E5C71',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E4DFF9',
+        'light-on-secondary-container': '#302E42',
+        'light-tertiary': '#693A2C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#845141',
+        'light-on-tertiary-container': '#FFDBD0',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#FCF8FD',
+        'light-on-background': '#1C1B1F',
+        'light-surface': '#FCF8FD',
+        'light-surface-dim': '#DDD9DD',
+        'light-surface-bright': '#FCF8FD',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F7F2F7',
+        'light-surface-container': '#F1ECF1',
+        'light-surface-container-high': '#EBE7EC',
+        'light-surface-container-highest': '#E5E1E6',
+        'light-on-surface': '#1C1B1F',
+        'light-surface-variant': '#E5E1EC',
+        'light-on-surface-variant': '#47464F',
+        'light-outline': '#787680',
+        'light-outline-variant': '#C8C5D0',
+        'light-inverse-surface': '#313034',
+        'light-inverse-on-surface': '#F4EFF4',
+        'light-inverse-primary': '#C6C0F9',
+        'dark-primary': '#C6C0F9',
+        'dark-on-primary': '#2E2A59',
+        'dark-primary-container': '#0A0435',
+        'dark-on-primary-container': '#E4DFFF',
+        'dark-secondary': '#C8C3DD',
+        'dark-on-secondary': '#302E42',
+        'dark-secondary-container': '#474459',
+        'dark-on-secondary-container': '#E4DFF9',
+        'dark-tertiary': '#F9B7A3',
+        'dark-on-tertiary': '#4E2517',
+        'dark-tertiary-container': '#693A2C',
+        'dark-on-tertiary-container': '#FFDBD0',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#141316',
+        'dark-on-background': '#E5E1E6',
+        'dark-surface': '#141316',
+        'dark-surface-dim': '#141316',
+        'dark-surface-bright': '#3A393C',
+        'dark-surface-container-lowest': '#0E0E11',
+        'dark-surface-container-low': '#1C1B1F',
+        'dark-surface-container': '#201F23',
+        'dark-surface-container-high': '#2A292D',
+        'dark-surface-container-highest': '#353438',
+        'dark-on-surface': '#E5E1E6',
+        'dark-surface-variant': '#47464F',
+        'dark-on-surface-variant': '#C8C5D0',
+        'dark-outline': '#928F99',
+        'dark-outline-variant': '#47464F',
+        'dark-inverse-surface': '#E5E1E6',
+        'dark-inverse-on-surface': '#313034',
+        'dark-inverse-primary': '#5D598B',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '48px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['26px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.25px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] w-full max-w-[390px] mx-auto bg-light-surface flex flex-col justify-between px-page-margin py-gutter-lg" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <main class="flex flex-col gap-gutter-lg">
+      <!-- Brand Header -->
+      <header class="flex flex-col gap-gutter-sm pt-gutter-md">
+        <div class="w-12 h-12 rounded-lg bg-light-primary text-light-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]" aria-hidden="true">school</span>
+        </div>
+        <h1 class="font-headline text-headline-lg text-light-on-surface text-balance" data-design-text-token="headline-lg">Đăng nhập sinh viên ĐH Sài Gòn</h1>
+        <p class="font-body text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">
+          Xác thực bằng email để thuê và cho thuê đồ tại Cơ sở 1, Cơ sở 2 hoặc Cơ sở Chính.
+        </p>
+      </header>
+
+      <!-- Step 1: Email Entry -->
+      <section id="step-email" class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="login-email" class="font-label text-label-lg text-light-on-surface" data-design-text-token="label-lg">Email sinh viên</label>
+          <input id="login-email" type="email" value="minh.nguyen@sgu.edu.vn" placeholder="mssv@sgu.edu.vn" class="w-full min-h-[48px] px-4 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-body text-body-lg text-light-on-surface focus:border-light-primary focus:ring-0">
+          <span class="font-label text-label-sm text-light-on-surface-variant" data-design-text-token="label-sm">Sau khi xác thực sẽ quay lại trang bạn đang xem.</span>
+        </div>
+
+        <!-- COMPONENT: button-primary -->
+        <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" onclick="document.getElementById(&#39;step-otp&#39;).classList.remove(&#39;hidden&#39;); document.getElementById(&#39;step-email&#39;).classList.add(&#39;hidden&#39;);" class="w-full inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-light-primary text-light-on-primary hover:bg-light-primary-container transition-colors duration-state-change ease-state-change">
+          <span class="font-label text-label-lg" data-design-text-token="label-lg">Gửi mã OTP</span>
+        </button>
+      </section>
+
+      <!-- Step 2: OTP Verification -->
+      <section id="step-otp" class="rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-md">
+        <div class="flex items-start justify-between gap-gutter-sm">
+          <div class="flex flex-col gap-gutter-xs">
+            <h2 class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Nhập mã xác thực 6 số</h2>
+            <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">
+              Mã đã gửi tới <span class="font-label text-label-lg text-light-on-surface" data-design-text-token="label-lg">minh.nguyen@sgu.edu.vn</span>
+            </p>
+          </div>
+          <button type="button" onclick="document.getElementById(&#39;step-email&#39;).classList.remove(&#39;hidden&#39;); document.getElementById(&#39;step-otp&#39;).classList.add(&#39;hidden&#39;);" class="font-label text-label-md text-light-primary hover:underline shrink-0" data-design-text-token="label-md">Đổi email</button>
+        </div>
+
+        <!-- OTP Input -->
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="otp-code" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Mã OTP (hiệu lực 5 phút)</label>
+          <input id="otp-code" type="text" inputmode="numeric" maxlength="6" value="482910" class="w-full min-h-[48px] px-4 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-mono text-title-lg tracking-widest text-center text-light-on-surface tabular-nums focus:border-light-primary focus:ring-0">
+        </div>
+
+        <!-- Error / Rate-limit State Example -->
+        <div role="alert" class="rounded-md bg-light-error-container text-light-on-error-container p-gutter-sm flex items-start gap-gutter-sm">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" aria-hidden="true">error</span>
+          <div class="flex flex-col gap-0.5">
+            <span class="font-label text-label-md" data-design-text-token="label-md">Mã OTP không đúng hoặc đã hết hạn</span>
+            <span class="font-body text-body-md" data-design-text-token="body-md">Vui lòng kiểm tra lại hoặc chờ 45 giây để gửi lại mã mới.</span>
+          </div>
+        </div>
+
+        <!-- Primary Action -->
+        <!-- COMPONENT: button-primary -->
+        <a href="../s03-kham-pha/KhamPha.html" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-light-primary text-light-on-primary hover:bg-light-primary-container transition-colors duration-state-change ease-state-change">
+          <span class="font-label text-label-lg" data-design-text-token="label-lg">Xác nhận và tiếp tục</span>
+        </a>
+
+        <!-- Resend Row -->
+        <div class="flex items-center justify-between gap-gutter-sm pt-gutter-xs border-t border-light-outline-variant">
+          <span class="font-label text-label-sm text-light-on-surface-variant tabular-nums" data-design-text-token="label-sm">Gửi lại sau 00:45</span>
+          <!-- COMPONENT: button-secondary -->
+          <button data-component-id="button-secondary-disabled" data-component-type="button" data-component-variant="secondary" type="button" disabled class="inline-flex items-center justify-center min-h-[40px] px-4 py-2 rounded-full bg-light-secondary-container text-light-on-secondary-container disabled:bg-light-surface-container-high disabled:text-light-on-surface-variant">
+            <span class="font-label text-label-md" data-design-text-token="label-md">Gửi lại mã</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pt-gutter-lg text-center">
+      <a href="../s03-kham-pha/KhamPha.html" class="font-label text-label-md text-light-primary hover:underline" data-design-text-token="label-md">Xem danh sách món trước khi đăng nhập</a>
+    </footer>
+
+  </div>
+
+
+</body></html>

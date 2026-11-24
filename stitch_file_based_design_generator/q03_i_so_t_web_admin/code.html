@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="vi"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q03 Đối soát — Quản trị Thuê Đồ Sinh Viên</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#146C2E',
+        'on-success': '#FFFFFF',
+        'success-container': '#D3F3D9',
+        'on-success-container': '#073815',
+        'warning': '#8C4A00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCBE',
+        'on-warning-container': '#4A2300',
+        'light-primary': '#0A0435',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#191443',
+        'light-on-primary-container': '#E4DFFF',
+        'light-secondary': '#5E5C71',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E4DFF9',
+        'light-on-secondary-container': '#302E42',
+        'light-tertiary': '#693A2C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#845141',
+        'light-on-tertiary-container': '#FFDBD0',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#FCF8FD',
+        'light-on-background': '#1C1B1F',
+        'light-surface': '#FCF8FD',
+        'light-surface-dim': '#DDD9DD',
+        'light-surface-bright': '#FCF8FD',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F7F2F7',
+        'light-surface-container': '#F1ECF1',
+        'light-surface-container-high': '#EBE7EC',
+        'light-surface-container-highest': '#E5E1E6',
+        'light-on-surface': '#1C1B1F',
+        'light-surface-variant': '#E5E1EC',
+        'light-on-surface-variant': '#47464F',
+        'light-outline': '#787680',
+        'light-outline-variant': '#C8C5D0',
+        'light-inverse-surface': '#313034',
+        'light-inverse-on-surface': '#F4EFF4',
+        'light-inverse-primary': '#C6C0F9',
+        'dark-primary': '#C6C0F9',
+        'dark-on-primary': '#2E2A59',
+        'dark-primary-container': '#0A0435',
+        'dark-on-primary-container': '#E4DFFF',
+        'dark-secondary': '#C8C3DD',
+        'dark-on-secondary': '#302E42',
+        'dark-secondary-container': '#474459',
+        'dark-on-secondary-container': '#E4DFF9',
+        'dark-tertiary': '#F9B7A3',
+        'dark-on-tertiary': '#4E2517',
+        'dark-tertiary-container': '#693A2C',
+        'dark-on-tertiary-container': '#FFDBD0',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#141316',
+        'dark-on-background': '#E5E1E6',
+        'dark-surface': '#141316',
+        'dark-surface-dim': '#141316',
+        'dark-surface-bright': '#3A393C',
+        'dark-surface-container-lowest': '#0E0E11',
+        'dark-surface-container-low': '#1C1B1F',
+        'dark-surface-container': '#201F23',
+        'dark-surface-container-high': '#2A292D',
+        'dark-surface-container-highest': '#353438',
+        'dark-on-surface': '#E5E1E6',
+        'dark-surface-variant': '#47464F',
+        'dark-on-surface-variant': '#C8C5D0',
+        'dark-outline': '#928F99',
+        'dark-outline-variant': '#47464F',
+        'dark-inverse-surface': '#E5E1E6',
+        'dark-inverse-on-surface': '#313034',
+        'dark-inverse-primary': '#5D598B',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '48px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['26px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.25px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[1024px] w-full flex bg-light-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Persistent Admin Sidebar Rail -->
+    <aside class="hidden lg:flex w-60 shrink-0 min-h-[1024px] bg-light-surface-container-lowest border-r border-light-outline-variant p-gutter-md flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col gap-gutter-lg">
+        <div class="flex items-center gap-gutter-sm px-2">
+          <div class="w-9 h-9 rounded-md bg-light-primary text-light-on-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">admin_panel_settings</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Quản trị ĐHSG</span>
+            <span class="font-label text-label-sm text-light-on-surface-variant" data-design-text-token="label-sm">Thuê Đồ Sinh Viên</span>
+          </div>
+        </div>
+
+        <nav aria-label="Điều hướng quản trị" class="flex flex-col gap-gutter-xs">
+          <a href="../q01-duyet-sinh-vien/DuyetSinhVien.html" class="min-h-[44px] px-3 rounded-full text-light-on-surface-variant hover:bg-light-surface-container flex items-center gap-gutter-sm font-label text-label-lg" data-design-text-token="label-lg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">verified_user</span>
+            Duyệt sinh viên
+          </a>
+          <a href="../q02-xu-ly-vu-viec/XuLyVuViec.html" class="min-h-[44px] px-3 rounded-full text-light-on-surface-variant hover:bg-light-surface-container flex items-center gap-gutter-sm font-label text-label-lg" data-design-text-token="label-lg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">gavel</span>
+            Xử lý vụ việc
+          </a>
+          <a href="#" aria-current="page" class="min-h-[44px] px-3 rounded-full bg-light-secondary-container text-light-on-surface flex items-center gap-gutter-sm font-label text-label-lg" data-design-text-token="label-lg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">fact_check</span>
+            Đối soát phí
+          </a>
+        </nav>
+      </div>
+
+      <a href="../s02-ho-so-xac-minh/HoSoXacMinh.html" class="min-h-[44px] px-3 rounded-full border border-light-outline-variant text-light-on-surface flex items-center gap-gutter-sm font-label text-label-md hover:bg-light-surface-container" data-design-text-token="label-md">
+        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+        Về giao diện sinh viên
+      </a>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 p-gutter-md lg:p-gutter-xl flex flex-col gap-gutter-lg max-w-[1200px]">
+      <header class="flex flex-wrap items-center justify-between gap-gutter-md">
+        <div class="flex flex-col gap-1">
+          <h1 class="font-headline text-headline-lg text-light-on-surface" data-design-text-token="headline-lg">Đối soát phí theo chủ đồ</h1>
+          <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Chọn chủ đồ, gom các đơn chưa đối soát cùng đợt và xác nhận số tiền thực nhận.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-gutter-sm">
+          <label for="owner-select" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Chủ đồ:</label>
+          <select id="owner-select" class="min-h-[44px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-label text-label-md text-light-on-surface">
+            <option selected>Lan (5 đơn chưa đối soát · 10.000đ)</option>
+            <option>Hùng (2 đơn chưa đối soát · 4.000đ)</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+        <!-- Unpaid Orders Table -->
+        <section class="lg:col-span-7 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-light-surface-container-low border-b border-light-outline-variant font-label text-label-md text-light-on-surface-variant">
+              <tr>
+                <th class="py-3 px-4">Chọn</th>
+                <th class="py-3 px-4">Mã đơn</th>
+                <th class="py-3 px-4">Phí chủ đồ</th>
+                <th class="py-3 px-4">Thu hộ người thuê</th>
+                <th class="py-3 px-4">Tổng</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-light-outline-variant font-body text-body-md tabular-nums">
+              <tr>
+                <td class="py-3 px-4"><input type="checkbox" checked class="rounded text-light-primary focus:ring-0"></td>
+                <td class="py-3 px-4 font-mono text-mono-sm">#SGU-104</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4 font-label text-label-md text-light-primary">2.000đ</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4"><input type="checkbox" checked class="rounded text-light-primary focus:ring-0"></td>
+                <td class="py-3 px-4 font-mono text-mono-sm">#SGU-101</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4 font-label text-label-md text-light-primary">2.000đ</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4"><input type="checkbox" checked class="rounded text-light-primary focus:ring-0"></td>
+                <td class="py-3 px-4 font-mono text-mono-sm">#SGU-096</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4 font-label text-label-md text-light-primary">2.000đ</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4"><input type="checkbox" checked class="rounded text-light-primary focus:ring-0"></td>
+                <td class="py-3 px-4 font-mono text-mono-sm">#SGU-092</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4 font-label text-label-md text-light-primary">2.000đ</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4"><input type="checkbox" checked class="rounded text-light-primary focus:ring-0"></td>
+                <td class="py-3 px-4 font-mono text-mono-sm">#SGU-088</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4">1.000đ</td>
+                <td class="py-3 px-4 font-label text-label-md text-light-primary">2.000đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Reconciliation Confirmation Panel -->
+        <section class="lg:col-span-5 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant p-gutter-lg flex flex-col gap-gutter-md">
+          <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+            <h2 class="font-title text-title-lg text-light-on-surface" data-design-text-token="title-lg">Xác nhận đợt đối soát</h2>
+            <span class="font-label text-label-lg text-light-primary tabular-nums" data-design-text-token="label-lg">5 đơn · 10.000đ</span>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="received-amount" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Số tiền thực nhận (đ)</label>
+            <input id="received-amount" type="text" value="10.000" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-title text-title-md text-light-primary tabular-nums focus:border-light-primary focus:ring-0">
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="bank-ref" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Mã tham chiếu chuyển khoản</label>
+            <input id="bank-ref" type="text" value="VCB-24112026-8841" class="w-full min-h-[48px] px-3 rounded-md bg-light-surface-container-lowest border border-light-outline-variant font-mono text-body-md text-light-on-surface focus:border-light-primary focus:ring-0">
+          </div>
+
+          <button type="button" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="w-full min-h-[48px] px-6 rounded-full bg-light-primary text-light-on-primary hover:bg-light-primary-container font-label text-label-lg" data-design-text-token="label-lg">
+            Ghi nhận đã nhận 10.000đ
+          </button>
+
+          <div class="rounded-md bg-success-container text-on-success-container p-gutter-sm flex flex-col gap-0.5">
+            <span class="font-label text-label-md" data-design-text-token="label-md">Đợt trước đã đối soát: 6.000đ (3 đơn)</span>
+            <span class="font-body text-body-md tabular-nums" data-design-text-token="body-md">Xác nhận bởi QTV An lúc 20/11/2026 · 16:20</span>
+          </div>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+
+</body></html>
