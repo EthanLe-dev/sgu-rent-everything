@@ -211,11 +211,11 @@ func validateListingFields(in listingInput) map[string]string {
 	if strings.TrimSpace(in.Condition) == "" {
 		fields["condition"] = "Bắt buộc"
 	}
-	if in.DailyRate < 0 {
-		fields["daily_rate"] = "Không được âm"
+	if in.DailyRate < 0 || in.DailyRate > 10_000_000 {
+		fields["daily_rate"] = "Giá thuê phải từ 0đ đến 10.000.000đ/ngày"
 	}
-	if in.Deposit < 0 {
-		fields["deposit"] = "Không được âm"
+	if in.Deposit < 0 || in.Deposit > 50_000_000 {
+		fields["deposit"] = "Tiền cọc phải từ 0đ đến 50.000.000đ"
 	}
 	if !slices.Contains(catalogAreas, in.Area) {
 		fields["area"] = "Khu vực giao nhận không hợp lệ"
@@ -549,6 +549,9 @@ func computeQuote(l Listing, startStr, endStr string) (Quote, error) {
 		return Quote{}, errors.New("invalid range")
 	}
 	days := int(endT.Sub(startT).Hours()/24) + 1
+	if days < 1 || days > 90 {
+		return Quote{}, errors.New("invalid range")
+	}
 	rent := l.DailyRate * days
 	const renterFee = 1000
 	const ownerFee = 1000

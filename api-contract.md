@@ -1,6 +1,6 @@
 # Thuê Đồ Sinh Viên · API contract v1
 
-Dùng chung cho Flutter Android, Flutter Web, mock server và hai service Go. Tra theo màn hình hoặc mã FR/AC trong `requirements.md`. File này chốt giao diện truyền dữ liệu của pilot. Khi đổi tên trường, kiểu hoặc hành vi, cập nhật contract và test của cả hai phía trong cùng thay đổi.
+Dùng chung cho Frontend Web (React/Next.js), mock client và hai service Go. Tra theo màn hình hoặc mã FR/AC trong `requirements.md`. File này chốt giao diện truyền dữ liệu của pilot. Khi đổi tên trường, kiểu hoặc hành vi, cập nhật contract và test của cả hai phía trong cùng thay đổi.
 
 ## 1. Quy ước đọc và gọi API
 

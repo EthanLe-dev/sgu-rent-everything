@@ -62,6 +62,17 @@ func (s *Server) handleSendOTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var globalBurst int
+	_ = s.db.QueryRow(r.Context(), `
+		SELECT COUNT(*) FROM otp_challenges
+		WHERE created_at > $1
+	`, now.Add(-1*time.Minute)).Scan(&globalBurst)
+	if globalBurst >= 30 {
+		w.Header().Set("Retry-After", "30")
+		writeError(w, http.StatusTooManyRequests, "rate_limited", "Hệ thống đang bận gửi mã OTP, vui lòng thử lại sau ít giây.", nil)
+		return
+	}
+
 	n, err := rand.Int(rand.Reader, big.NewInt(1000000))
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, "internal_error", "Không thể tạo mã OTP.", nil)

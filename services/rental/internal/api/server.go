@@ -102,8 +102,8 @@ func (s *Server) Routes() http.Handler {
 	mux.HandleFunc("DELETE /v1/listings/{id}/blocks/{block_id}", s.auth(true, s.handleDeleteBlock))
 	mux.HandleFunc("POST /v1/listings/{id}/quote", s.auth(false, s.handleQuoteListing))
 
-	// Photos
-	mux.HandleFunc("POST /v1/photos", s.auth(false, s.handleUploadPhoto))
+	// Photos (upload requires approved account; reading enforces per-photo ACL)
+	mux.HandleFunc("POST /v1/photos", s.auth(true, s.handleUploadPhoto))
 	mux.HandleFunc("GET /v1/photos/{id}", s.auth(false, s.handleGetPhoto))
 
 	// Orders

@@ -1,14 +1,14 @@
-# Thuê Đồ Sinh Viên — Android, web và pilot
+# Thuê Đồ Sinh Viên — Web Mobile-First và pilot
 
 ## 1. Mục tiêu và phạm vi
 
-Xây ứng dụng Android và web bằng một dự án Flutter cho sinh viên Đại học Sài Gòn thuê đồ ít dùng của nhau. Một tài khoản có thể vừa đăng đồ vừa đi thuê. Hai bên gặp tại trường để giao trả, thanh toán bằng tiền mặt hoặc chuyển khoản trực tiếp. Người vận hành pilot duyệt danh tính, giải quyết sự cố và đối soát phí. Tên repo là `sgu-rent-everything`.
+Xây ứng dụng Web-Only (Mobile-First Responsive Web & PWA) bằng React và Next.js cho sinh viên Đại học Sài Gòn thuê đồ ít dùng của nhau. Một tài khoản có thể vừa đăng đồ vừa đi thuê. Hai bên gặp tại trường để giao trả, thanh toán bằng tiền mặt hoặc chuyển khoản trực tiếp. Người vận hành pilot duyệt danh tính, giải quyết sự cố và đối soát phí. Tên repo là `sgu-rent-everything`.
 
-Luồng phải chạy được trên hai điện thoại, từ đăng ký đến quyết toán một đơn thật. Pilot hỗ trợ Android và trình duyệt. iOS, giao hàng và tích hợp cổng thanh toán nằm ngoài phạm vi phiên bản này.
+Luồng phải chạy mượt trên trình duyệt của hai điện thoại (hoặc 1 điện thoại + 1 máy tính), từ đăng ký đến quyết toán một đơn thật. Pilot tập trung tối ưu trải nghiệm Web trên điện thoại và máy tính; ứng dụng native (Android/iOS), giao hàng và tích hợp cổng thanh toán nằm ngoài phạm vi phiên bản này.
 
-**Mốc A — bản đầu để kiểm thử.** Tên hiển thị trong app và trên launcher Android là **Thuê Đồ Sinh Viên**. Chọn một trong ba điểm giao nhận: **Cơ sở 1**, **Cơ sở 2**, **Cơ sở Chính**. Dùng cùng danh sách khi đăng và lọc món. Hai bên có thể nhắn vị trí cụ thể trong đơn.
+**Mốc A — bản đầu để kiểm thử.** Tên hiển thị trên web và PWA là **Thuê Đồ Sinh Viên**. Chọn một trong ba điểm giao nhận: **Cơ sở 1**, **Cơ sở 2**, **Cơ sở Chính**. Dùng cùng danh sách khi đăng và lọc món. Hai bên có thể nhắn vị trí cụ thể trong đơn.
 
-Bàn giao bản web chạy qua URL local, APK cài được trên Android thật hoặc giả lập, hai service Go và PostgreSQL thật qua Docker Compose, hộp thư OTP thử nghiệm, kho ảnh và hộp thông báo local. Kèm lệnh khởi động, cách cấu hình địa chỉ backend từ Android, nạp lại dữ liệu giả, tài khoản cho hai vai trò giao dịch và quản trị, cùng kết quả các ca thành công/lỗi. Thử từ hai phiên riêng, gồm hiển thị tiền/cọc, mất mạng, trùng lịch, đọc dữ liệu ngoài quyền và bất đồng giao nhận. FCM thật, phát hành qua Google Play và thử với sinh viên thuộc mốc sau A.
+Bàn giao bản web React/Next.js chạy qua URL local (Caddy phục vụ cùng origin với `/v1/*`), hai service Go và PostgreSQL thật qua Docker Compose, hộp thư OTP thử nghiệm, kho ảnh và hộp thông báo local. Kèm lệnh khởi động, nạp lại dữ liệu giả, tài khoản cho hai vai trò giao dịch và quản trị, cùng kết quả các ca thành công/lỗi trên cả viewport điện thoại và máy tính. Thử từ hai phiên riêng, gồm hiển thị tiền/cọc, mất mạng, trùng lịch, đọc dữ liệu ngoài quyền và bất đồng giao nhận. Thử với sinh viên thuộc mốc sau A.
 
 ## 2. Tài khoản và quyền truy cập
 

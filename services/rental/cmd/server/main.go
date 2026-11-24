@@ -54,6 +54,12 @@ func main() {
 		InternalServiceToken: envOr("INTERNAL_SERVICE_TOKEN", "local-internal-token"),
 	}
 
+	if appEnv := os.Getenv("APP_ENV"); appEnv == "production" || appEnv == "pilot" {
+		if cfg.OTPPepper == "" || cfg.OTPPepper == "local-dev-pepper" || cfg.InternalServiceToken == "" || cfg.InternalServiceToken == "local-internal-token" {
+			log.Fatalf("APP_ENV=%s requires non-default OTP_PEPPER and INTERNAL_SERVICE_TOKEN", appEnv)
+		}
+	}
+
 	srv := api.NewServer(pool, cfg)
 	s3c := api.NewS3Client(cfg.S3Endpoint, cfg.S3Bucket, cfg.S3AccessKey, cfg.S3SecretKey)
 	for range 10 {
@@ -70,6 +76,9 @@ func main() {
 		Addr:              ":" + port,
 		Handler:           srv.Routes(),
 		ReadHeaderTimeout: 10 * time.Second,
+		ReadTimeout:       30 * time.Second,
+		WriteTimeout:      30 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 
 	go func() {

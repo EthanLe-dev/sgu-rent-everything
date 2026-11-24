@@ -38,8 +38,14 @@ func main() {
 		time.Sleep(1 * time.Second)
 	}
 
+	internalToken := envOr("INTERNAL_SERVICE_TOKEN", "local-internal-token")
+	if appEnv := os.Getenv("APP_ENV"); appEnv == "production" || appEnv == "pilot" {
+		if internalToken == "" || internalToken == "local-internal-token" {
+			log.Fatalf("APP_ENV=%s requires non-default INTERNAL_SERVICE_TOKEN", appEnv)
+		}
+	}
 	srv := api.NewServer(pool, api.Config{
-		InternalServiceToken: envOr("INTERNAL_SERVICE_TOKEN", "local-internal-token"),
+		InternalServiceToken: internalToken,
 	})
 
 	port := envOr("PORT", "8082")
@@ -47,6 +53,9 @@ func main() {
 		Addr:              ":" + port,
 		Handler:           srv.Routes(),
 		ReadHeaderTimeout: 10 * time.Second,
+		ReadTimeout:       30 * time.Second,
+		WriteTimeout:      30 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 
 	go func() {

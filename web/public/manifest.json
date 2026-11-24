@@ -1,0 +1,11 @@
+{
+  "name": "Thuê Đồ Sinh Viên — Đại học Sài Gòn",
+  "short_name": "Thuê Đồ SV",
+  "description": "Ứng dụng thuê và cho thuê đồ sinh viên Đại học Sài Gòn tại Cơ sở 1, Cơ sở 2 và Cơ sở Chính.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF8FD",
+  "theme_color": "#0A0435",
+  "orientation": "portrait-primary",
+  "lang": "vi"
+}

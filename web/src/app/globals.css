@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1 !important;
+  box-sizing: content-box;
+  overflow: hidden;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.material-fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Mobile-first smooth touch & safe-area support */
+html, body {
+  background-color: #FCF8FD;
+  color: #1C1B1F;
+  -webkit-tap-highlight-color: transparent;
+}

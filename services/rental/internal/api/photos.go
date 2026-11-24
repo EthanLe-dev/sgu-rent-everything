@@ -177,6 +177,17 @@ func (s *Server) handleUploadPhoto(w http.ResponseWriter, r *http.Request, me Me
 		return
 	}
 
+	var orphanCount int
+	_ = s.db.QueryRow(r.Context(), `
+		SELECT COUNT(*) FROM photos
+		WHERE uploader_id = $1 AND listing_id IS NULL AND order_id IS NULL
+	`, me.ID).Scan(&orphanCount)
+	if orphanCount >= 30 {
+		w.Header().Set("Retry-After", "60")
+		writeError(w, http.StatusTooManyRequests, "rate_limited", "Bạn đang có quá nhiều ảnh chưa gắn vào tin đăng. Vui lòng hoàn tất tin trước khi tải thêm.", nil)
+		return
+	}
+
 	var orderID *string
 	if purpose == "handover" {
 		oid := strings.TrimSpace(r.FormValue("order_id"))
