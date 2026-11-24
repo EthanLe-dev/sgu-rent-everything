@@ -1,0 +1,26 @@
+:80 {
+	handle /v1/notifications* {
+		reverse_proxy notification-service:8082
+	}
+
+	handle /v1/me/devices* {
+		reverse_proxy notification-service:8082
+	}
+
+	handle /v1/* {
+		reverse_proxy rental-service:8081
+	}
+
+	handle {
+		@hasWeb file {
+			root /srv/web
+			try_files /index.html
+		}
+		handle @hasWeb {
+			root * /srv/web
+			try_files {path} /index.html
+			file_server
+		}
+		respond "Thuê Đồ Sinh Viên - API /v1 sẵn sàng (Flutter Web chưa build)" 200
+	}
+}
